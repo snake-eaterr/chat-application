@@ -1,0 +1,13 @@
+html, body {
+  font-family: 'Courier New', Courier, monospace;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(38, 106, 207);
+  color: aliceblue;
+}
+
+* {
+  box-sizing: border-box;
+  
+}
+

@@ -1,0 +1,42 @@
+.roomsbar {
+ 
+  width: 100%;
+  background-color: rgb(38, 106, 207);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+
+
+
+.roomsbar > ul {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  color: aliceblue;
+  list-style-type: none;
+  border-bottom: 2px solid aliceblue;
+  border-top: 2px solid aliceblue;
+}
+.roomsbar > ul > li {
+  padding: 5px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.roomsbar > h2 {
+  color: aliceblue;
+  text-align: center;
+
+  padding: 5px;
+}
+
+.roomsbar > p {
+  text-align: center;
+  margin-top: 30px;
+
+}

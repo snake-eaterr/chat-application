@@ -1,0 +1,58 @@
+.joinOuterContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.joinInnerContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .joinInnerContainer {
+    width: 100%;
+  }
+}
+
+.heading {
+  text-align: center;
+  font-size: 2em;
+  color: aliceblue;
+  padding-bottom: 10px;
+  border-bottom: 2px solid aliceblue;
+}
+
+.loginInput {
+  width: 100%;
+  padding: 10px 15px;
+  outline: none;
+}
+
+.loginButton {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 5px;
+  outline: none;
+
+}
+
+.recaptcha {
+  margin: 5px;
+}
+
+.githublink, .githublink a {
+  text-decoration: none;
+  color: white;
+
+
+}
+
+#link {
+  color: aliceblue;
+}

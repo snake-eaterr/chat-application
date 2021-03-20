@@ -1,0 +1,33 @@
+.chatContainer {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 30vw 1fr;
+  grid-template-rows: 1fr auto;
+  height: 100vh;
+  
+  grid-template-areas: 
+    "roomsbar messages"
+    "roomsbar input";
+}
+
+
+.roomsbar {
+  grid-area: roomsbar;
+}
+
+.messages {
+  grid-area: messages;
+
+}
+
+.messagesInput {
+  grid-area: input;
+}
+
+
+
+
+

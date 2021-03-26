@@ -57,7 +57,7 @@ const Login = () => {
 					<div><input type="text" className="loginInput" placeholder="password" required value={password} onChange={({ target }) => setPassword(target.value)} /></div>
 					<button  className="loginButton" type="submit">LOG IN</button>
 				</form>
-				<p>Don't have an account? <Link id="link" to="/signup">Sign Up</Link></p>
+				<p>Dont have an account? <Link id="link" to="/signup">Sign Up</Link></p>
 			</div>
 			<div className="githublink"><a  href="#"><p><FontAwesomeIcon icon={faGithub} /> source code</p></a></div>
 		</div>

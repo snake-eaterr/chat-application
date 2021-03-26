@@ -7,7 +7,7 @@ let socket
 const socketMiddleware = ({ dispatch }) => next => action => {
   
 	if (action.type === 'LOGIN_SUCCESS') {
-		socket = io.connect('http://localhost:4000', {
+		socket = io.connect({ 																// add a url of running the server and client from two different origins
 			extraHeaders: { Authorization: `Bearer ${action.data}` }
 		})
 

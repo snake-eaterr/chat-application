@@ -14,7 +14,7 @@ export const setNotification = (message, type) => {
 	return async dispatch => {
 		dispatch({
 			type: 'SET_NOTIFICATION',
-			data: {message, type}
+			data: { message, type }
 		})
 		clearTimeout(id)
 

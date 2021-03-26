@@ -6,12 +6,18 @@ const socketioJwt = require('socketio-jwt')
 
 
 const server = http.createServer(app)
-const io = socketio(server, {
-	cors: {
-		origin: 'http://localhost:3000',
-		methods: ['GET', 'POST']
-	}
-})
+let io
+if (process.env.NODE_ENV === 'development') {
+	io = socketio(server, {
+		cors: {
+			origin: 'http://localhost:3000',
+			methods: ['GET', 'POST']
+		}
+	})
+} else if (process.env.NODE_ENV === 'production') {
+	io = socketio(server)
+}
+
 
 
 
@@ -46,7 +52,7 @@ io.on('connect', (socket) => {
 })
 
 
-
-server.listen(config.PORT, () => {
+const PORT = config.PORT || 3001
+server.listen(PORT, () => {
 	console.log(`server running on port ${config.PORT}`)
 })

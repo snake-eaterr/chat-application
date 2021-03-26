@@ -44,7 +44,7 @@ const RoomsBar = () => {
 					return <li key={room.id} onClick={() => handleRoomChange(room.id)} style={user.lastJoinedRoom === room.id ? selectedRoomBgColor : null}>{room.roomName}</li>
 				})}
 			</ul>
-			<p><FontAwesomeIcon icon={faGithub} /> Developed by snake-eaterr</p>
+			<p><a href="https://github.com/snake-eaterr/chat-application" target="_blank" rel="noreferrer" ><FontAwesomeIcon icon={faGithub} /> Developed by snake-eaterr</a></p>
 		</div>
 	)
 }

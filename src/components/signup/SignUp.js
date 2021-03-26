@@ -56,7 +56,7 @@ const SignUp = () => {
 				</form>
 				<p>Already have an account? <Link id="link" to="/login">log in</Link></p>
 			</div>
-			<div className="githublink"><a  href="#"><p><FontAwesomeIcon icon={faGithub} /> source code</p></a></div>
+			<div className="githublink"><a  href="https://github.com/snake-eaterr/chat-application" target="_blank" rel="noreferrer" ><p><FontAwesomeIcon icon={faGithub} /> snake-eaterr, source code</p></a></div>
 		</div>
 	)
 }

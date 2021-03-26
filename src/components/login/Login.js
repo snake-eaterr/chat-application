@@ -59,7 +59,7 @@ const Login = () => {
 				</form>
 				<p>Dont have an account? <Link id="link" to="/signup">Sign Up</Link></p>
 			</div>
-			<div className="githublink"><a  href="#"><p><FontAwesomeIcon icon={faGithub} /> source code</p></a></div>
+			<div className="githublink"><a  href="https://github.com/snake-eaterr/chat-application" target="_blank" rel="noreferrer" ><p><FontAwesomeIcon icon={faGithub} /> snake-eaterr, source code</p></a></div>
 		</div>
 	)
 }

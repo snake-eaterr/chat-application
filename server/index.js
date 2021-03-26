@@ -40,7 +40,6 @@ io.on('connect', (socket) => {
 	})
 
 	socket.on('disconnect', () => {
-		console.log('got disconnect')
 		io.to(user.lastJoinedRoom).emit('message', { user: 'admin', text: `${user.username} has left the room` })
 	})
 

@@ -6,8 +6,12 @@
   display: flex;
   flex-direction: column;
   background-color: rgb(240, 171, 42);
+}
 
-
+#last {
+  padding: 0;
+  margin: 0;
+  height: 1px;
 }
 
 .messagesList {
@@ -27,6 +31,6 @@
   padding: 10px 15px;
   width: 100%;
   margin: 10px 20px;
-
-  
+  font-weight: 100;
+  color: black;
 }

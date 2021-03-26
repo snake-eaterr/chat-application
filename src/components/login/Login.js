@@ -1,34 +1,67 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './Login.css'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { login, loginSuccess } from '../../reducers/userReducer'
+import chatServices from '../../services/chatServices'
+import { Link, useHistory } from 'react-router-dom'
+import { setNotification } from '../../reducers/notificationReducer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import './Login.css'
 
 
 const Login = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
 
 
-  const onChange = (value) => {
-    console.log('Captcha value:', value)
-  }
+	const history = useHistory()
+	const dispatch = useDispatch()
 
-  return (
-    <div className="joinOuterContainer">
-      <div className="joinInnerContainer">
-        <h1 className="heading">Login to app</h1>
-        <form>
-          <div><input type="text" className="loginInput" placeholder="username" required value={username} onChange={({ target }) => setUsername(target.value)} /></div>
-          <div><input type="text" className="loginInput" placeholder="password" required value={password} onChange={({ target }) => setPassword(target.value)} /></div>
-          <button  className="loginButton" type="submit">LOG IN</button>
-        </form>
-        <p>Don't have an account? <Link id="link" to="/signup">Sign Up</Link></p>
-      </div>
-      <div className="githublink"><a  href="#"><p><FontAwesomeIcon icon={faGithub} /> source code</p></a></div>
-    </div>
-  )
+	useEffect(() => {
+		const loggedinUserJSON = window.localStorage.getItem('loggedinUser')
+		if (loggedinUserJSON) {
+
+			const returnedUser = JSON.parse(loggedinUserJSON)
+			dispatch(login(returnedUser))
+			dispatch(loginSuccess(returnedUser.token))
+			chatServices.setToken(returnedUser.token)
+			history.push('/chat')
+		}
+	}, [])
+
+	const handleSubmit = async (event) => {
+		event.preventDefault()
+		try {
+			const returnedUser = await chatServices.login(username, password)
+			window.localStorage.setItem('loggedinUser', JSON.stringify(returnedUser))
+			chatServices.setToken(returnedUser.token)
+			dispatch(login(returnedUser))
+			dispatch(loginSuccess(returnedUser.token))
+			history.push('/chat')
+		} catch(error) {
+			dispatch(setNotification(error.response.data.data.error))
+			setUsername('')
+			setPassword('')
+		}
+
+
+    
+	}
+
+	return (
+		<div className="joinOuterContainer">
+			<div className="joinInnerContainer">
+				<h1 className="heading">Login to app</h1>
+				<form onSubmit={handleSubmit}>
+					<div><input type="text" className="loginInput" placeholder="username" required value={username} onChange={({ target }) => setUsername(target.value)} /></div>
+					<div><input type="text" className="loginInput" placeholder="password" required value={password} onChange={({ target }) => setPassword(target.value)} /></div>
+					<button  className="loginButton" type="submit">LOG IN</button>
+				</form>
+				<p>Don't have an account? <Link id="link" to="/signup">Sign Up</Link></p>
+			</div>
+			<div className="githublink"><a  href="#"><p><FontAwesomeIcon icon={faGithub} /> source code</p></a></div>
+		</div>
+	)
 }
 
 export default Login

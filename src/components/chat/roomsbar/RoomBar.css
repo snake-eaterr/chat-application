@@ -23,9 +23,26 @@
   border-top: 2px solid aliceblue;
 }
 .roomsbar > ul > li {
+  
   padding: 5px;
   text-align: center;
   font-size: 1em;
+}
+.roomsbar > ul > li:hover {
+  color: black;
+  cursor: pointer;
+}
+
+.headerAndLogout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.headerAndLogout > p:hover {
+  color: black;
+  cursor: pointer;
 }
 
 .roomsbar > h2 {

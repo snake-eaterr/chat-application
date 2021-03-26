@@ -23,7 +23,6 @@ const socketMiddleware = ({ dispatch }) => next => action => {
 
 	if (action.type === 'LOGOUT') {
 		socket.close()
-		console.log('closed socket connection')
 		next(action)
 	}
 

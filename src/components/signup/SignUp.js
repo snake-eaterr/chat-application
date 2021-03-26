@@ -50,7 +50,7 @@ const SignUp = () => {
 				<h1 className="heading">Create Account</h1>
 				<form onSubmit={onSubmit}>
 					<div><input type="text" className="loginInput" placeholder="username" required value={username} onChange={({ target }) => setUsername(target.value)} /></div>
-					<div><input type="text" className="loginInput" placeholder="password" required value={password} onChange={({ target }) => setPassword(target.value)} /></div>
+					<div><input type="password" className="loginInput" placeholder="password" required value={password} onChange={({ target }) => setPassword(target.value)} /></div>
 					<div className="recaptcha"><ReCaptcha sitekey="6Ld6VooaAAAAAI9WK1d4pCFMEVP-NzHzTipDByzp" onChange={onChange} /></div>
 					<button  className="loginButton" type="submit">Sign up</button>
 				</form>

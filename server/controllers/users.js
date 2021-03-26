@@ -24,7 +24,7 @@ userRouter.post('/signup', async (request, response) => {
 	const configHeaders = {
 		headers: {
 			Accept: /application\/json/,
-			ContentType: 'application/x-www-form-urlencoded; charset=utf-8'
+			ContentType: "application/x-www-form-urlencoded; charset=utf-8"
 		}
 	}
 
@@ -37,7 +37,7 @@ userRouter.post('/signup', async (request, response) => {
 	const saltRounds = 10
 	const passwordHash = await bcrypt.hash(body.password, saltRounds)
 
-	const room = await Room.findOne({ roomName: 'default' })
+	const room = await Room.findOne({ roomName: 'room1' })
 
 	const user = new User({
 		username: body.username,
